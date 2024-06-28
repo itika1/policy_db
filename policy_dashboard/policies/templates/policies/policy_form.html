@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Edit Policy{% else %}Create Policy{% endif %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/policy_admin.js' %}"></script> <!-- Ensure correct path -->
+    <style>
+        /* Example CSS for hiding fields */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edit Policy{% else %}Create Policy{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div id="form-fields">
+            <!-- Initial rendering of form fields -->
+            {{ form.as_p }}
+        </div>
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'policy_list' %}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- policies/policy_detail.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Policy Detail</title>
+</head>
+<body>
+    <h1>Policy Detail</h1>
+    <p>Application Number: {{ policy.application_number }}</p>
+    <p>Customer Name: {{ policy.customer_name }}</p>
+    <p>Policy Status: {{ policy.policy_status }}</p>
+    <!-- Display other policy details as needed -->
+
+    <a href="{% url 'policy_list' %}">Back to Policy List</a>
+</body>
+</html>

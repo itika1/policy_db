@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Policy List</title>
+</head>
+<body>
+    <h1>Policy List</h1>
+    <a href="{% url 'policy_create' %}">Add New Policy</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Application Number</th>
+                <th>Customer Name</th>
+                <th>Policy Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for policy in policies %}
+            <tr>
+                <td>{{ policy.application_number }}</td>
+                <td>{{ policy.customer_name }}</td>
+                <td>{{ policy.policy_status }}</td>
+                <td class="actions">
+                    <a href="{% url 'policy_detail' policy.pk %}">View</a>
+                    <a href="{% url 'policy_update' policy.pk %}">Edit</a>
+                    <a href="{% url 'policy_delete' policy.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
